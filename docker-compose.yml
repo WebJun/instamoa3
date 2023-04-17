@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  ubuntu:
+    build:
+      dockerfile: './ubuntu.Dockerfile'
+    stdin_open: true
+    tty: true
+    ports:
+      - '10022:22'
+      - '10080:80'
+      - '8000:8000'
+    volumes:
+      - './scrap:/scrap'
+      - './web:/web'
+  db:
+    build:
+      dockerfile: './db.Dockerfile'
+    ports:
+      - '13306:3306'
+    environment:
+      - MYSQL_DATABASE=insta
+      - MYSQL_ROOT_PASSWORD=docker123
+      - TZ=Asia/Seoul
+    volumes:
+      - ./mysql:/var/lib/mysql

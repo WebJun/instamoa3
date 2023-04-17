@@ -1,0 +1,1 @@
+docker exec -it instamoa-ubuntu-1 bash
