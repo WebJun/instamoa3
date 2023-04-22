@@ -5,14 +5,17 @@ import json
 from dotmap import DotMap  # pip install dotmap
 from pprint import pprint
 from createLogger import createLogger
-
+from Model import Model
 
 class GetUserData:
 
     def __init__(self):
         self.util = Util()
-        self.logger = createLogger('user')
-        self.userName = 'bonacosmicgirls'
+        # self.logger = createLogger('user')
+        self.logger = Util()
+
+    def setUserName(self, userName):
+        self.userName = userName
 
     def getUser(self):
         result = ''
@@ -59,9 +62,15 @@ class GetUserData:
 
 
 if __name__ == '__main__':
-    try:
-        getUserData = GetUserData()
+    util = Util()
+    getUserData = GetUserData()
+    model = Model()
+
+    users = util.readFile('users.json')
+    users = json.loads(users)
+    
+    for user in users:
+        pprint(user)
+        getUserData.setUserName(user)
         user = getUserData.run()
-        pprint(user.user)
-    except:
-        print('힝')
+        model.saveUser(user.user)

@@ -13,9 +13,9 @@ class GetUserData:
         self.util = Util()
         # self.logger = createLogger('user')
         self.logger = Util()
-        self.userName = 'bonacosmicgirls'
-        # self.userName = 'dlwlrma'
-        # self.userName = 'skuukzky'
+
+    def setUserName(self, userName):
+        self.userName = userName
 
     def getUser(self):
         result = ''
@@ -24,7 +24,7 @@ class GetUserData:
                 f'https://www.instagram.com/{self.userName}/')
             result = response.text
         except:
-            result = '실패'
+            result = 600
         self.logger.info(result)
         return result
 
@@ -46,7 +46,7 @@ class GetUserData:
             )
             result = response.text
         except:
-            result = '실패'
+            result = 600
         self.logger.info(result)
         return result
 
@@ -61,17 +61,26 @@ class GetUserData:
         return user
 
 
+'''
+내가 원하는것
+requests
+다음걸로 넘어가기
+'''
 if __name__ == '__main__':
-    try:
-        getUserData = GetUserData()
-        user = getUserData.run()
-            
-        model = Model()
-        # a = model.getUsers('ec959aee7a844f17b479fd92ed49ea6d')
-        # print(a)
-        user = DotMap(user.user)
-        pprint(user)
-        model.saveUser(user)
+    util = Util()
+    getUserData = GetUserData()
+    model = Model()
+    logger = createLogger('zzzzz')
 
-    except:
-        print('힝')
+    users = util.readFile('users.json')
+    users = json.loads(users)
+    
+    for user in users:
+        try:
+            logger.info(user)
+            getUserData.setUserName(user)
+            user = getUserData.run()
+            model.saveUser(user.user)
+            logger.info('success')
+        except:
+            logger.error('fail')

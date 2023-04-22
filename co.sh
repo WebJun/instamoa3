@@ -1,1 +1,1 @@
-docker exec -it instamoa-ubuntu-1 bash
+docker exec -it instamoa3-ubuntu-1 bash
