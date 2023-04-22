@@ -7,9 +7,9 @@ def createLogger(fname):
     formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-    # stream_hander = logging.StreamHandler()
-    # stream_hander.setFormatter(formatter)
-    # mylogger.addHandler(stream_hander)
+    stream_hander = logging.StreamHandler()
+    stream_hander.setFormatter(formatter)
+    mylogger.addHandler(stream_hander)
 
     file_handler = logging.FileHandler(f'appdata/log/{fname}.log',
                                        encoding='utf-8')

@@ -21,7 +21,8 @@ class GetUserData:
 
     def getUser(self):
         response = requests.get(
-            f'https://www.instagram.com/{self.userName}/', allow_redirects=False)
+            f'https://www.instagram.com/{self.userName}/', allow_redirects=False, timeout=1)
+        print(response.status_code)
         if response.status_code != 200:
             raise Exception(response.status_code)
         if self.check404(response.text):
@@ -31,7 +32,9 @@ class GetUserData:
     def check404(self, html):
         #a = self.util.readFile('aaa.html')
         html = BeautifulSoup(html, 'html.parser')
-        if html.find('title').string.strip() == 'Page Not Found • Instagram':
+        title = html.find('title').string.strip()
+        print(title)
+        if title == 'Instagram':
             return True
         return False
 
@@ -71,7 +74,7 @@ class GetUserData:
 if __name__ == '__main__':
     util = Util()
     getUserData = GetUserData()
-    model = Model()
+    #model = Model()
     logger = createLogger('users')
 
     users = util.readFile('users.json')
@@ -83,9 +86,9 @@ if __name__ == '__main__':
             logger.info(user)
             getUserData.setUserName(user)
             user = getUserData.run()
-            model.saveUser(user.user)
+            #model.saveUser(user.user)
             logger.info('success')
         except:
             logger.error(traceback.format_exc())
             logger.error('fail')
-            sys.exit()
+            #sys.exit()
