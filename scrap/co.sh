@@ -1,0 +1,1 @@
+docker exec -it instamoa3-ubuntu-1 su scv
