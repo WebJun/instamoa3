@@ -2,6 +2,7 @@ from Util import Util
 import json
 from pprint import pprint
 from dotmap import DotMap  # pip install dotmap
+import sys
 
 util = Util()
 user = util.readFile('appdata/json/dlwlrma copy.json')
@@ -14,20 +15,12 @@ user.fitems = user.pop('items')
 apple = DotMap()
 apple.user = user.user
 
-apple.posts = []
-for item in user.fitems:
-    bb = DotMap()
-    bb.code = item.code
-    bb.files = []
-    for a in item.carousel_media:
-        dd = []
-        for i,v in enumerate(a.image_versions2.candidates):
-            if i==0:
-                dd.append(v.url)
-        bb.files.append(dd)
-    apple.posts.append(bb)
+def inner(media):
+    return [v.url for i,v in enumerate(media.image_versions2.candidates) if i==0]
 
+def outer(item):
+    return [inner(media) for media in item.carousel_media] if 'carousel_media' in item else inner(item)
+
+apple.posts = [DotMap({'code':item.code,'files':outer(item)}) for item in user.fitems]
 pprint(apple)
-
-
 

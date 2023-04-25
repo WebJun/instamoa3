@@ -12,7 +12,8 @@ class HttpHandler:
         httpFactory = HttpFactory()
         self.http = httpFactory.create('requests')
         self.util = Util()
-        self.mode = True
+        self.mode = False
+        self.saveMode = True
 
     def getUserHtml(self, userName):
         if self.mode:
@@ -25,6 +26,8 @@ class HttpHandler:
             if self.check404(response.text):
                 raise Exception('aaaa')
             result = response.text
+            if self.saveMode:
+                self.util.saveFile(f'appdata/html/{self.util.now()}.html', result)
         except:
             self.logger.info(traceback.format_exc())
         return result
@@ -36,6 +39,8 @@ class HttpHandler:
         try:
             response = self.http.getUserJson(userId, xIgAppID)
             result = response.text
+            if self.saveMode:
+                self.util.saveFile(f'appdata/json/{self.util.now()}.json', result)
         except:
             self.logger.error(traceback.format_exc())
         return result

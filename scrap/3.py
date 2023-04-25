@@ -15,6 +15,12 @@ user.fitems = user.pop('items')
 apple = DotMap()
 apple.user = user.user
 
+
+def aa(a):
+    return [v.url for i,v in enumerate(a.image_versions2.candidates) if i==0]
+
+
+
 apple.posts = []
 for item in user.fitems:
     bb = DotMap()
@@ -22,16 +28,9 @@ for item in user.fitems:
     bb.files = []
     if 'carousel_media' in item:
         for a in item.carousel_media:
-            dd = []
-            for i,v in enumerate(a.image_versions2.candidates):
-                if i==0:
-                    dd.append(v.url)
-            bb.files.append(dd)
+            bb.files = bb.files + aa(a)
     else:
-        for i,v in enumerate(item.image_versions2.candidates):
-            if i==0:
-                dd.append(v.url)
-        bb.files.append(dd)
+        bb.files = bb.files + aa(item)
     apple.posts.append(bb)
 
 pprint(apple)
