@@ -39,7 +39,7 @@ class Model:
             post.pks = post.pop("pk")
             post.pks_id = post.pop("pk_id")
             post = self.filter(post, Post)
-            # pprint(post)
+            pprint(post)
             postSet = Post(**post)
             postSet.save()
         # for index, post in enumerate(posts):
@@ -53,9 +53,8 @@ class Model:
         posts = files
         for index, post in enumerate(posts):
             for index, file in enumerate(post.files):
-                # pprint(file)
                 fileSet = File()
-                fileSet.username = userId
-                fileSet.code = post.code
-                fileSet.url = file
+                fileSet.user_id = userId
+                fileSet.post_id = post.code
+                fileSet.kkk = file
                 fileSet.save()

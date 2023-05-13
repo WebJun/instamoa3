@@ -23,10 +23,11 @@ if __name__ == '__main__':
     apple.postIds = [item.code for item in user.fitems]
     
     def inner(media):
-        return [v.url for i,v in enumerate(media.image_versions2.candidates) if i==0]
+        a = [v.url for i,v in enumerate(media.image_versions2.candidates) if i==0]
+        return a
 
     def outer(item):
-        return [inner(media) for media in item.carousel_media] if 'carousel_media' in item else inner(item)
+        return [inner(media)[0] for media in item.carousel_media] if 'carousel_media' in item else inner(item)
 
     apple.files = [DotMap({'code':item.code,'files':outer(item)}) for item in user.fitems]
         
