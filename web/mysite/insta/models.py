@@ -3,21 +3,35 @@ from django.db import models
 from django.utils import timezone
 import datetime
 import uuid
+import jsonfield  # pip install django-jsonfield
+import json
+
 
 class User(models.Model):
-    seq = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    pks = models.CharField(max_length=255,null=True)
-    pks_id = models.CharField(max_length=255,null=True)
-    username = models.CharField(max_length=255,null=True)
-    full_name = models.CharField(max_length=255,null=True)
-    is_private = models.BooleanField(default=False,null=True)
-    is_verified = models.BooleanField(default=False,null=True)
-    profile_key = models.CharField(max_length=255,null=True)
-    profile_pic_id = models.CharField(max_length=255,null=True)
-    profile_pic_url = models.TextField(null=True)
-    profile_grid_display_type = models.CharField(max_length=255,null=True)
-    updated_at = models.DateTimeField(default=timezone.now,null=True)
-    created_at = models.DateTimeField(default=timezone.now,null=True)
+    seq = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False)
+    user_id = models.CharField(max_length=255, null=True)
+    post_id = models.CharField(max_length=255, null=True)
+    file_id = models.CharField(max_length=255, null=True)
+    kkk = jsonfield.JSONField(null=True)
+
+
+class Post(models.Model):
+    seq = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False)
+    user_id = models.CharField(max_length=255, null=True)
+    post_id = models.CharField(max_length=255, null=True)
+    file_id = models.CharField(max_length=255, null=True)
+    kkk = jsonfield.JSONField(null=True)
+
+
+class File(models.Model):
+    seq = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False)
+    user_id = models.CharField(max_length=255, null=True)
+    post_id = models.CharField(max_length=255, null=True)
+    file_id = models.CharField(max_length=255, null=True)
+    kkk = jsonfield.JSONField(null=True)
 
 # class Post(models.Model):
 #     seq = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

@@ -9,8 +9,6 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 
 .venv\Scripts\activate
-python main.py user dlwlrma
-python main.py post dlwlrma
-python main.py file dlwlrma
-python main.py copy dlwlrma
 
+vim ~/.bashrc
+source /scrap/www.instagrammoa.com/.venv/bin/activate
