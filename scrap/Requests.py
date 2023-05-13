@@ -9,16 +9,19 @@ class Requests:
         return response
 
     def getUserJson(self, userId, xIgAppID):
+        params = {
+            'count': '50',
+            # 'max_id': max_id,
+        }
         headers = {
             'X-IG-App-ID': xIgAppID,
         }
-        print(77)
         response = requests.get(
             f'https://www.instagram.com/api/v1/feed/user/{userId}/',
+            params=params,
             headers=headers,
             allow_redirects=False,
         )
-        print(7711)
         return response
 
     def getUserJson2(self, userId, xIgAppID, max_id):
@@ -29,12 +32,10 @@ class Requests:
         headers = {
             'X-IG-App-ID': xIgAppID,
         }
-        print(99)
         response = requests.get(
             f'https://www.instagram.com/api/v1/feed/user/{userId}/',
             params=params,
             headers=headers,
             allow_redirects=False,
         )
-        print(9911)
         return response

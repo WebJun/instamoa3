@@ -36,35 +36,31 @@ class GetUserData:
         self.util = Util()
         self.http = HttpHandler()
         self.parse = ParseUser()
+        self.max_id = ''
 
     def setUserName(self, userName):
         self.userName = userName
 
-    def run(self):
+    def first(self):
         userHtml = self.http.getUserHtml(self.userName)
-        userId = self.parse.userId(userHtml)
-        xIgAppID = self.parse.xIgAppID(userHtml)
-        self.logger.info(userId)
-        self.logger.info(xIgAppID)
-        user = self.http.getUserJson(userId, xIgAppID)
-        user = DotMap(json.loads(user))
-        self.logger.info(user.user)
+        self.userId = self.parse.userId(userHtml)
+        self.xIgAppID = self.parse.xIgAppID(userHtml)
 
-        self.userId = userId
-        self.xIgAppID = xIgAppID
+    def repeat(self):
+        user = self.http.getUserJson2(self.userId, self.xIgAppID, self.max_id)
+        user = DotMap(json.loads(user))
+        self.max_id = self.getMaxId(user)
+        print(self.max_id)
         return user
 
-    def run2(self, max_id):
-        user = self.http.getUserJson2(self.userId, self.xIgAppID, max_id)
-        user = DotMap(json.loads(user))
-        self.logger.info(user.user)
-        return user
+    def getMaxId(self, user):
+        self.util.saveFile(f'{util.now()}.json', json.dumps(user.toDict()))
+        return user.next_max_id
 
 
 def inner(media):
-    a = [v.url for i, v in enumerate(
+    return [v.url for i, v in enumerate(
         media.image_versions2.candidates) if i == 0]
-    return a
 
 
 def outer(item):
@@ -85,37 +81,18 @@ if __name__ == '__main__':
     user = 'dlwlrma'
     logger.info(apple.userId)
     getUserData.setUserName(apple.userId)
-    user = getUserData.run()
-    # pprint(user)
-
-    user = DotMap(user)
-    user.fitems = user.pop('items')
-    apple.user = user.user
-    apple.posts = [DotMap({**item.caption, **item}) for item in user.fitems]
-    apple.postIds = [item.code for item in user.fitems]
-
-    apple.files = [DotMap({'code': item.code, 'files': outer(item)})
-                   for item in user.fitems]
-    model.saveUser(apple.user)
-    model.savePosts(apple.posts)
-    model.saveFiles(apple.userId, apple.files)
-    logger.info('success')
-
-    user_id = apple.user.pks
-    qq = len(apple.posts)
-    max_id = apple.posts[qq-1].id
-
-    user = getUserData.run2(max_id)
-    pprint(user)
-
-    user = DotMap(user)
-    user.fitems = user.pop('items')
-    apple.user = user.user
-    apple.posts = [DotMap({**item.caption, **item}) for item in user.fitems]
-    apple.postIds = [item.code for item in user.fitems]
-    apple.files = [DotMap({'code': item.code, 'files': outer(item)})
-                   for item in user.fitems]
+    getUserData.first()
     # model.saveUser(apple.user)
-    model.savePosts(apple.posts)
-    model.saveFiles(apple.userId, apple.files)
-    logger.info('success2')
+
+    # while True:
+    for i in range(0, 10):
+        user = getUserData.repeat()
+        user = DotMap(user)
+        user.fitems = user.pop('items')
+        apple.user = user.user
+        apple.posts = [DotMap({**item.caption, **item})
+                       for item in user.fitems if item.caption != None]
+        apple.files = [DotMap({'code': item.code, 'files': outer(item)})
+                       for item in user.fitems]
+        model.savePosts(apple.posts)
+        model.saveFiles(apple.userId, apple.files)
