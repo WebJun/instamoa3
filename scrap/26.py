@@ -38,22 +38,22 @@ if __name__ == '__main__':
     
     
     
-    # user_id = apple.user.pks
-    # qq = len(apple.posts)
-    # max_id = apple.posts[qq-1].id
+    user_id = apple.user.pks
+    qq = len(apple.posts)
+    max_id = apple.posts[qq-1].id
         
-    # headers = {
-    #     'X-IG-App-ID': '936619743392459',
-    # }
-    # params = {
-    #     'count': '12',
-    #     'max_id': max_id,
-    # }
-    # now = util.now()
-    # response = requests.get(
-    #     f'https://www.instagram.com/api/v1/feed/user/{user_id}/',
-    #     params=params,
-    #     headers=headers,
-    # )
-    # util = Util()
-    # util.saveFile(f'{now}.json', response.text)
+    headers = {
+        'X-IG-App-ID': '936619743392459',
+    }
+    params = {
+        'count': '12',
+        'max_id': max_id,
+    }
+    now = util.now()
+    response = requests.get(
+        f'https://www.instagram.com/api/v1/feed/user/{user_id}/',
+        params=params,
+        headers=headers,
+    )
+    util = Util()
+    util.saveFile(f'{now}.json', response.text)

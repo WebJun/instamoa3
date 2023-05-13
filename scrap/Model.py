@@ -20,7 +20,7 @@ class Model:
     def getUsers(self, seq):
         return User.objects.filter(seq=seq).values()
 
-    def saveUser(self, userId, user):        
+    def saveUser(self, user):        
         user.pks = user.pop("pk")
         user.pks_id = user.pop("pk_id")
         user = self.filter(user, User)
@@ -33,9 +33,9 @@ class Model:
         intersection = list(set(lst1) & set(lst2))
         return {k: v for k, v in user.items() if k in intersection}   
     
-    def savePosts(self, userId, postIds, posts):
+    def savePosts(self, posts):
         # pprint(posts)
-        for index, post in enumerate(posts):
+        for post in posts:
             post.pks = post.pop("pk")
             post.pks_id = post.pop("pk_id")
             post = self.filter(post, Post)
