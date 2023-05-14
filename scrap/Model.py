@@ -1,6 +1,6 @@
 from pprint import pprint
 from dotmap import DotMap  # pip install dotmap
-import orm
+from djangoOrm import orm
 from djangoOrm.insta.models import (
     User,
     Post,
