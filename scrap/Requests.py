@@ -5,7 +5,7 @@ class Requests:
 
     def getUserHtml(self, userName):
         response = requests.get(
-            f'https://www.instagram.com/{userName}/', allow_redirects=False, timeout=1)
+            f'https://www.instagram.com/{userName}/', allow_redirects=False, timeout=5)
         return response
 
     def getUserJson(self, userId, xIgAppID):

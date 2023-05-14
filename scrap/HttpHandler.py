@@ -5,7 +5,7 @@ from createLogger import createLogger
 import traceback
 from Util import Util
 from dotmap import DotMap  # pip install dotmap
-
+from IpManager import IpManager
 
 class HttpHandler:
 
@@ -16,6 +16,7 @@ class HttpHandler:
         self.util = Util()
         self.mode = False
         self.saveMode = True
+        self.ipManager = IpManager('192.168.42.36')
 
     def getUserHtml(self, userName):
         if self.mode:
@@ -73,12 +74,13 @@ class HttpHandler:
                 result = DotMap(response.json())
                 if self.saveMode:
                     self.util.saveFile(
-                        f'appdata/json/{self.util.now()}.json', result)
+                        f'appdata/json/{self.util.now()}.json', response.text)
             except:
                 self.logger.error(traceback.format_exc())
             if result.status == 'ok':
                 break
             print(i, '무야호')
+            self.ipManager.changeIP()
         return result
 
     def check404(self, html):
