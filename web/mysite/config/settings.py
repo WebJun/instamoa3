@@ -9,18 +9,35 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
+import environ  # pip install django-environ
+from dotmap import DotMap  # pip install dotmap
+from dotenv import load_dotenv  # pip install python-dotenv
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+env = environ.Env(DEBUG=(bool, True))
+
+isDev = False
+envPath = os.path.join(f'{BASE_DIR}/../..', '.prod.env')
+
+if str(BASE_DIR) == '/scrap/djangoOrm':
+    isDev = True
+
+if isDev:
+    envPath = os.path.join(f'{BASE_DIR}/../..', '.dev.env')
+
+environ.Env.read_env(
+    env_file=envPath
+)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-b4(*h5#i4xb+02cdap4n$1^em)^cgn=h_usf4y0f_p13+t)z_!'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -83,14 +100,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'insta',
-        'USER': 'root',
-        'PASSWORD': 'docker123',
-        'HOST': 'db',
-        'PORT': '3306',
+        'NAME': env('DB_DATABASE'),
+        'USER': env('DB_USERNAME'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
         'OPTIONS': {
-            'charset': 'utf8mb4',
-        },
+            'charset': 'utf8mb4'  # 중요 우분투에서 필요
+        }
     }
 }
 

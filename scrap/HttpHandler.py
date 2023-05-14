@@ -7,6 +7,7 @@ from Util import Util
 from dotmap import DotMap  # pip install dotmap
 from IpManager import IpManager
 
+
 class HttpHandler:
 
     def __init__(self):
@@ -80,7 +81,7 @@ class HttpHandler:
             if result.status == 'ok':
                 break
             print(i, '무야호')
-            self.ipManager.changeIP()
+            # self.ipManager.changeIP()
         return result
 
     def check404(self, html):

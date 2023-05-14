@@ -2,3 +2,5 @@ __pycache__
 .venv
 *.pyc
 example
+.dev.env
+.prod.env
