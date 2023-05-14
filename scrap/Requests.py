@@ -26,7 +26,8 @@ class Requests:
 
     def getUserJson2(self, userId, xIgAppID, max_id):
         params = {
-            'count': '50',
+            # 'count': '50',
+            'count': '33',
             'max_id': max_id,
         }
         headers = {

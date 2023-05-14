@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from createLogger import createLogger
 import traceback
 from Util import Util
+from dotmap import DotMap  # pip install dotmap
 
 
 class HttpHandler:
@@ -60,6 +61,24 @@ class HttpHandler:
                     f'appdata/json/{self.util.now()}.json', result)
         except:
             self.logger.error(traceback.format_exc())
+        return result
+
+    def getUserJson3(self, userId, xIgAppID, max_id):
+        for i in range(0, 3):
+            if self.mode:
+                return self.util.readFile('appdata/json/dlwlrma.json')
+            result = {}
+            try:
+                response = self.http.getUserJson2(userId, xIgAppID, max_id)
+                result = DotMap(response.json())
+                if self.saveMode:
+                    self.util.saveFile(
+                        f'appdata/json/{self.util.now()}.json', result)
+            except:
+                self.logger.error(traceback.format_exc())
+            if result.status == 'ok':
+                break
+            print(i, '무야호')
         return result
 
     def check404(self, html):
