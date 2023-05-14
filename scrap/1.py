@@ -77,15 +77,14 @@ if __name__ == '__main__':
     # users = json.loads(users)
 
     apple = DotMap()
-    apple.userId = 'dlwlrma'
-    user = 'dlwlrma'
-    logger.info(apple.userId)
-    getUserData.setUserName(apple.userId)
+    apple.username = 'dlwlrma'
+    logger.info(apple.username)
+    getUserData.setUserName(apple.username)
     getUserData.first()
     # model.saveUser(apple.user)
 
     # while True:
-    for i in range(0, 10):
+    for i in range(0, 3):
         user = getUserData.repeat()
         user = DotMap(user)
         user.fitems = user.pop('items')
@@ -94,5 +93,7 @@ if __name__ == '__main__':
                        for item in user.fitems if item.caption != None]
         apple.files = [DotMap({'code': item.code, 'files': outer(item)})
                        for item in user.fitems]
-        model.savePosts(apple.posts)
-        model.saveFiles(apple.userId, apple.files)
+        if i == 0:
+            model.saveUser(apple.user)
+        model.savePosts(apple.username, apple.posts)
+        model.saveFiles(apple.username, apple.files)

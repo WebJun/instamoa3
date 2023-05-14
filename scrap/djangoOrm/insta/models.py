@@ -10,7 +10,7 @@ import json
 class User(models.Model):
     seq = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
-    
+
     pks = models.CharField(max_length=255, null=True)
     pks_id = models.CharField(max_length=255, null=True)
     username = models.CharField(max_length=255, null=True)
@@ -26,13 +26,15 @@ class User(models.Model):
 class Post(models.Model):
     seq = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
+    username = models.CharField(max_length=255, null=True)
+    media_type = models.CharField(max_length=255, null=True)
     pks = models.CharField(max_length=255, null=True)
     id = models.CharField(max_length=255, null=True)
-    code = models.CharField(max_length=255, null=True)    
-    created_at = models.CharField(max_length=255, null=True)    
+    code = models.CharField(max_length=255, null=True)
+    created_at = models.CharField(max_length=255, null=True)
     text = models.TextField(null=True)
-    media_id = models.CharField(max_length=255, null=True)    
-    status = models.CharField(max_length=255, null=True)    
+    media_id = models.CharField(max_length=255, null=True)
+    status = models.CharField(max_length=255, null=True)
     # user_id = models.CharField(max_length=255, null=True)
     # post_id = models.CharField(max_length=255, null=True)
     # file_id = models.CharField(max_length=255, null=True)
@@ -45,6 +47,7 @@ class File(models.Model):
     username = models.CharField(max_length=255, null=True)
     code = models.CharField(max_length=255, null=True)
     url = models.TextField(null=True)
+    media_type = models.CharField(max_length=255, null=True)
     # file_id = models.CharField(max_length=255, null=True)
     # kkk = jsonfield.JSONField(null=True)
 
