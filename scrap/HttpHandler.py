@@ -66,7 +66,7 @@ class HttpHandler:
         return result
 
     def getUserJson3(self, userId, xIgAppID, max_id):
-        for i in range(0, 3):
+        for i in range(0, 10):
             if self.mode:
                 return self.util.readFile('appdata/json/dlwlrma.json')
             result = {}
@@ -81,7 +81,7 @@ class HttpHandler:
             if result.status == 'ok':
                 break
             print(i, '무야호')
-            # self.ipManager.changeIP()
+            self.ipManager.changeIP()
         return result
 
     def check404(self, html):

@@ -49,7 +49,7 @@ class GetUserData:
     def repeat(self):
         user = self.http.getUserJson3(self.userId, self.xIgAppID, self.max_id)
         # user = DotMap(json.loads(user))
-        self.util.saveFile(f'{util.now()}.json', json.dumps(user.toDict()))
+        # self.util.saveFile(f'{util.now()}.json', json.dumps(user.toDict()))
         self.max_id = user.next_max_id
         next = True
         if len(user.next_max_id) < 20:
@@ -78,8 +78,8 @@ if __name__ == '__main__':
 
     apple = DotMap()
     # apple.username = 'dlwlrma'
-    # apple.username = 'bikini_kor'
-    apple.username = 'okjayeon'
+    apple.username = 'bikini_kor'
+    # apple.username = 'okjayeon'
     logger.info(apple.username)
     getUserData.setUserName(apple.username)
     getUserData.first()
