@@ -21,26 +21,19 @@ class Model:
         userSet = User(**user)
         userSet.save()
 
-    def savePosts(self, username, posts):
+    def savePosts(self, posts):
         postArr = []
         for post in posts:
             post.pks = post.pop("pk")
-            post.pks_id = post.pop("pk_id")
-            post.username = username
             post = self.filterExistField(post, Post)
             postArr.append(Post(**post))
         Post.objects.bulk_create(postArr)
 
-    def saveFiles(self, username, files):
-        posts = files
+    def saveFiles(self, files):
         fileArr = []
-        for index, post in enumerate(posts):
-            for index, file in enumerate(post.files):
-                fileSet = File()
-                fileSet.username = username
-                fileSet.code = post.code
-                fileSet.url = file
-                fileArr.append(fileSet)
+        for file in files:
+            file = self.filterExistField(file, File)
+            fileArr.append(File(**file))
         File.objects.bulk_create(fileArr)
 
     def getFiles(self):

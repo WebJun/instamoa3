@@ -4,6 +4,26 @@ import json
 from dotmap import DotMap  # pip install dotmap
 from pprint import pprint
 
+
+def getFilesInner(item):
+    result = DotMap()
+    if 'image_versions2' in item:
+        result.image = item.image_versions2.candidates[0].url
+    if 'video_versions' in item:
+        result.video = item.video_versions[0].url
+    return result
+
+
+def getFiles(item):
+    if 'carousel_media' not in item:
+        return [getFilesInner(item)]
+
+    result = []
+    for carousel_item in item.carousel_media:
+        result.append(getFilesInner(carousel_item))
+    return result
+
+
 if __name__ == '__main__':
     util = Util()
     data = util.readFile('20230517023027858504.json')
@@ -12,9 +32,6 @@ if __name__ == '__main__':
     apple = DotMap()
     data.fitems = data.pop('items')
     apple.user = data.user
-
-    # user
-    # pprint(apple.user)
 
     apple.posts = []
     pprint(len(data.fitems))
@@ -37,27 +54,7 @@ if __name__ == '__main__':
             itemTemp.status = ''
             itemTemp.created_at = ''
 
-        itemTemp.files = []
-
-        sss = DotMap()
-        # 파일이 1개인 경우
-        if 'image_versions2' in item:
-            sss.image = item.image_versions2.candidates[0].url
-        if 'video_versions' in item:
-            sss.video = item.video_versions[0].url
-        if 'image_versions2' in item or 'video_versions' in item:
-            itemTemp.files.append(sss)
-
-        # 파일이 여러개인 경우
-        if 'carousel_media' in item:
-            for qqq in item.carousel_media:
-                sss = DotMap()
-                if 'image_versions2' in qqq:
-                    sss.image = qqq.image_versions2.candidates[0].url
-                if 'video_versions' in qqq:
-                    sss.video = qqq.video_versions[0].url
-                if 'image_versions2' in qqq or 'video_versions' in qqq:
-                    itemTemp.files.append(sss)
+        itemTemp.files = getFiles(item)
         apple.posts.append(itemTemp)
 
     pprint(apple.posts[0])
