@@ -110,7 +110,7 @@ if __name__ == '__main__':
     logger = createLogger('users')
 
     apple = DotMap()
-    apple.username = 'okjayeon'
+    apple.username = 'dlwlrma'
     logger.info(apple.username)
     getUserData.setUserName(apple.username)
     getUserData.first()
