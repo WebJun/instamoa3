@@ -11,8 +11,16 @@ from django.db.models import Q, Max, Min
 
 class Model:
 
-    def getUsers(self, seq):
-        return User.objects.filter(seq=seq).values()
+    username = ''
+
+    def getUsers(self):
+        return User.objects.filter(username=self.username).values()
+
+    def getPosts(self):
+        return Post.objects.filter(username=self.username).values()
+
+    def getFiles(self):
+        return File.objects.filter(username=self.username).values()
 
     def saveUser(self, user):
         user.pks = user.pop("pk")
@@ -35,9 +43,6 @@ class Model:
             file = self.filterExistField(file, File)
             fileArr.append(File(**file))
         File.objects.bulk_create(fileArr)
-
-    def getFiles(self):
-        return File.objects.values()
 
     def filterExistField(self, user, Table):
         lst1 = [field.name for field in Table._meta.get_fields()]
