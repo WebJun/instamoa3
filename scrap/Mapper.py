@@ -42,9 +42,9 @@ class Mapper:
     def getLocalname(self, res, index):
         apple = datetime.fromtimestamp(int(res.taken_at))
         cdn = 'cdn3'
-        if 'image' in res:
+        if res.image != None:
             res.image_local = f"{apple.strftime('%Y%m%d%H%M%S')}+{cdn}+{res.username}+{res.code}+{self.util.zfill3(index)}.jpg"
-        if 'video' in res:
+        if res.video != None:
             res.video_local = f"{apple.strftime('%Y%m%d%H%M%S')}+{cdn}+{res.username}+{res.code}+{self.util.zfill3(index)}.mp4"
         return res
 

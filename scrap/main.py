@@ -38,12 +38,12 @@ class InstaFactory:
 
 if __name__ == '__main__':
     '''
-    python main.py http okjayeon
-    python main.py user okjayeon
-    python main.py post okjayeon
-    python main.py file okjayeon
-    python main.py image okjayeon
-    python main.py video okjayeon
+    python main.py http dlwlrma
+    python main.py user dlwlrma
+    python main.py post dlwlrma
+    python main.py file dlwlrma
+    python main.py image dlwlrma
+    python main.py video dlwlrma
     '''
     mylogger = createLogger('Main')
 
