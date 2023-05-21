@@ -4,3 +4,4 @@ __pycache__
 example
 .dev.env
 .prod.env
+/appdata*/
