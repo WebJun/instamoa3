@@ -9,7 +9,7 @@ from Mapper import Mapper
 import os
 
 
-class User:
+class File:
 
     userId = None
 
@@ -19,8 +19,8 @@ class User:
 
     def run(self):
         try:
-            mylogger = createLogger('User')
-            mylogger.info(f'start user : {self.user.id}')
+            mylogger = createLogger('File')
+            mylogger.info(f'start file : {self.user.id}')
             model = Model()
             mapper = Mapper()
             util = Util()
@@ -33,10 +33,14 @@ class User:
                 data = util.readFile(fpn)
                 data = DotMap(json.loads(data))
 
-                pprint(data.user)
-                if index == 0:
-                    model.saveUser(data.user)
-                break
+                data.fitems = data.pop('items')
+
+                apple = DotMap()
+                apple.files = []
+                for item in data.fitems:
+                    apple.files = apple.files + mapper.getFiles(item)
+
+                model.saveFiles(apple.files)
 
         except Exception as err:
             mylogger.info(traceback.format_exc())

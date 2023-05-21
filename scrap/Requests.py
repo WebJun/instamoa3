@@ -1,42 +1,36 @@
 import requests  # pip install requests
+from dotmap import DotMap  # pip install dotmap
 
 
 class Requests:
 
     def getUserHtml(self, userName):
-        response = requests.get(
-            f'https://www.instagram.com/{userName}/', allow_redirects=False, timeout=5)
-        return response
+        apple = DotMap()
+        apple.url = f'https://www.instagram.com/{userName}/'
+        apple.allow_redirects = False
+        apple.timeout = 5
+        return requests.get(**apple)
 
     def getUserJson(self, userId, xIgAppID):
-        params = {
+        apple = DotMap()
+        apple.url = f'https://test2.cono.kr/request/{userId}/'
+        apple.params = {
             'count': '50',
-            # 'max_id': max_id,
         }
-        headers = {
+        apple.headers = {
             'X-IG-App-ID': xIgAppID,
         }
-        response = requests.get(
-            f'https://www.instagram.com/api/v1/feed/user/{userId}/',
-            params=params,
-            headers=headers,
-            allow_redirects=False,
-        )
-        return response
+        apple.allow_redirects = False
+        return requests.get(**apple)
 
     def getUserJson2(self, userId, xIgAppID, max_id):
-        params = {
-            # 'count': '50',
+        apple = DotMap()
+        apple.url = f'https://www.instagram.com/api/v1/feed/user/{userId}/'
+        apple.params = {
             'count': '33',
             'max_id': max_id,
         }
-        headers = {
+        apple.headers = {
             'X-IG-App-ID': xIgAppID,
         }
-        response = requests.get(
-            f'https://www.instagram.com/api/v1/feed/user/{userId}/',
-            params=params,
-            headers=headers,
-            allow_redirects=False,
-        )
-        return response
+        return requests.get(**apple)

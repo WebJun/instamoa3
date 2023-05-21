@@ -1,14 +1,10 @@
 from dotmap import DotMap  # pip install dotmap
-import time
 import json
-import sys
-import logging
 from Util import Util
-from Model import Model
-from IpManager import IpManager
 import traceback
 from createLogger import createLogger
 import os
+from GetUserData import GetUserData
 
 
 class InstaCrawling:
@@ -20,11 +16,27 @@ class InstaCrawling:
         self.util = Util()
 
     def run(self):
-        if not os.path.isdir(f'{self.filePath}/{self.username}'):
-            os.makedirs(f'{self.filePath}/{self.username}')
+        fileUsernamePath = f'{self.filePath}/{self.username}'
+        if not os.path.isdir(fileUsernamePath):
+            os.makedirs(fileUsernamePath)
 
-        self.util.saveFile(
-            f'{self.filePath}/{self.username}/{self.util.now()}.json', '1')
+        getUserData = GetUserData()
+        apple = DotMap()
+        apple.username = self.username
+        getUserData.setUserName(apple.username)
+        getUserData.first()
+
+        i = 0
+        while True:
+            user, next = getUserData.repeat()
+
+            self.util.saveFile(
+                f'{fileUsernamePath}/{self.util.now()}.json', json.dumps(user.toDict()))
+
+            print(i, next)
+            if next == False:
+                break
+            i = i + 1
 
 
 class Http:
@@ -44,4 +56,4 @@ class Http:
         except Exception as err:
             mylogger.info(traceback.format_exc())
             mylogger.info(err)
-            mylogger.info(f'end user error : {self.user.id}')
+            mylogger.info(f'end http error : {self.user.id}')
