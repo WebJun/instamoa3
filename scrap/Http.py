@@ -50,9 +50,11 @@ class Http:
     def run(self):
         try:
             mylogger = createLogger('Http')
+            mylogger.info(f'start http : {self.user.id}')
             insta = InstaCrawling()
             insta.username = self.user.id
             insta.run()
+            mylogger.info(f'end http success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())
             mylogger.info(err)

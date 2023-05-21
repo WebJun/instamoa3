@@ -37,7 +37,7 @@ class User:
                 if index == 0:
                     model.saveUser(data.user)
                 break
-
+            mylogger.info(f'end user success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())
             mylogger.info(err)

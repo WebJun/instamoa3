@@ -11,8 +11,6 @@ import os
 
 class File:
 
-    userId = None
-
     def __init__(self, userId):
         self.user = DotMap()
         self.user.id = userId
@@ -24,6 +22,7 @@ class File:
             model = Model()
             mapper = Mapper()
             util = Util()
+            mapper.username = self.user.id
 
             directory = f'appdata/data/{self.user.id}'
             file_list = os.listdir(directory)
@@ -41,7 +40,7 @@ class File:
                     apple.files = apple.files + mapper.getFiles(item)
 
                 model.saveFiles(apple.files)
-
+            mylogger.info(f'end file success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())
             mylogger.info(err)

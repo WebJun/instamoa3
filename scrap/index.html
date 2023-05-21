@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>인스타모아</title>
+    <link rel="icon" href="/static/img/36b3ee2d91ed.ico">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="title" content="인스타모아">
+    <meta name="keywords" content="인스타,인스타그램,다운로더,백업,이미지,원본,모아보기,검색,인스타백업,인스타이미지,인스타원본,인스타모아보기,인스타검색,인스타다운로더">
+    <meta name="author" content="Jun">
+    <meta name="description" content="인스타모아,인스타 사진 저장,인스타 다운로드,인스타 모아보기">
+    <meta name="robots" content="index,follow">
+
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="인스타모아">
+    <meta property="og:description" content="인스타모아">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://www.instagrammoa.com/">
+    <meta property="og:site_name" content="instamoa" />
+
+    <link rel="icon" sizes="192x192" href="/static/img/68d99ba29cc8.png">
+    <link rel="mask-icon" href="/static/img/fc72dd4bfde8.svg" color="#262626">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/36b3ee2d91ed.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/themes/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css">
+    <link rel="stylesheet" href="https://www.instagrammoa.com/static/css/moa.css?210824" />
+</head>
+
+<body>
+
+    <!-- csrf trick -->
+    <form method="post"><input type="hidden" name="csrfmiddlewaretoken" value="MdK6H7VM9nknUG20kMVqYHPw582Spt0H590jJyXwkvnGz1oh5fv7f9hl9GZWoLZx"></form>
+
+    <div id="progressbar"><b><i></i></b></div>
+
+    <div id="side">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-search-tab" data-toggle="tab" href="#nav-search" role="tab" aria-controls="nav-search" aria-selected="false">기능</a>
+                <a class="nav-item nav-link" id="nav-xbox-tab" data-toggle="tab" href="#nav-loaded" role="tab" aria-controls="nav-loaded" aria-selected="true">전체</a>
+                <a class="nav-item nav-link" id="nav-xbox-tab" data-toggle="tab" href="#nav-clicked" role="tab" aria-controls="nav-clicked" aria-selected="false">클릭</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
+                <ul id="etc_function" style="padding-left:15px;">
+                    <li>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="btn_down_all_1">전체 다운로드</button>
+                        <div id="captcha_wrap" style="display:none; margin:5px 0 0 -10px;">
+                            <div style="display:flex; justify-content:space-between; width:302px; text-align:center;">
+                                <button id="resetCaptcha" class="btn btn-outline-secondary btn-sm" style="border-radius:0; width:50%;">새로고침</button>
+                                <button id="btn_down_all_2" class="btn btn-outline-secondary btn-sm" style="border-radius:0; width:50%;">다운로드</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="fullscreen">전체화면</button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="btn_set_column">열수변경</button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" id="btn_empty_files">비우기</button>
+                    </li>
+                    <li>
+                        <button id="autoScroll_on" class="btn btn-outline-secondary btn-sm">자동스크롤 on</button>
+                    </li>
+                    <li>
+                        <input type="range" name="scrollSpeed" min="-5" max="10" step="0.01" value="1">
+                    </li>
+                    <li>
+                        <button id="autoScroll_off" class="btn btn-outline-secondary btn-sm">자동스크롤 off</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-loaded" role="tabpanel" aria-labelledby="nav-loaded-tab">
+                <textarea id="loaded_textarea" style="width:100%;" rows="20"></textarea>
+            </div>
+            <div class="tab-pane fade" id="nav-clicked" role="tabpanel" aria-labelledby="nav-clicked-tab">
+                <textarea id="clicked_textarea" style="width:100%;" rows="20"></textarea>
+            </div>
+        </div>
+    </div>
+    <div id="side_btn">
+        <img src="https://www.instagrammoa.com/static/img/triangle.png">
+    </div>
+
+    <main>
+        <div class="container" style="text-align:center; padding:20px 0;">
+            <a href="/"><img class="logo" src="https://www.instagrammoa.com/static/img/logo.png"></a>
+        </div>
+        <div class="container">
+            <div class="alert alert-info">
+                <strong>알림</strong> 이 서비스를 이용하면 <a href="/moa/terms/" target="_blank">서비스 약관</a> 및 <a href="/moa/privacy/" target="_blank">개인정보보호방침</a>에 동의하게 됩니다.
+            </div>
+
+            <div id="use_method" class="alert alert-info use_method">
+                <div id="use_method_title" class="title">
+                    <strong>이용방법</strong>
+                </div>
+                <div id="use_method_content" class="content">
+                    <div class="sub mobile_show" style="display: none;">
+                        <h6>＊인스타그램 URL 링크 복사하기</h6>
+                        <div class="box_img">
+                            <img src="https://www.instagrammoa.com/static/img/copyLinkStep1.png" alt="상단에 :를 클릭한다." />&nbsp;&nbsp;
+                            <img src="https://www.instagrammoa.com/static/img/copyLinkStep2.png" alt="URL복사를 클릭한다" />
+                        </div>
+                    </div>
+                    <div class="sub" style="margin-top: 10px;">
+                        <h6>＊기본 이용방법</h6>
+                        <div class="sub_content">인스타그램 URL을 입력칸에 붙여넣고 검색한다.</div>
+                    </div>
+                    <div class="sub">
+                        <h6>＊기본 이용방법 2</h6>
+                        <div class="sub_content" style="margin-bottom:10px;">인스타그램 URL에 moa를 붙여서 접속한다.</div>
+                        <div style="margin-left:15px;">
+                            <img src="https://www.instagrammoa.com/static/img/attachMoa.gif" alt="instagram 뒤에 moa를 붙인다.">
+                        </div>
+                    </div>
+                    <div class="sub">
+                        <h6>＊태그검색법</h6>
+                        <div class="sub_content">키워드 앞에 #를 붙이고 검색한다. <div style="font-size:12px; color:#999;">#인스타모아</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:10px;">
+            <div style="position:relative;">
+                <div style="margin-right:53px;">
+                    <div class="inp_box">
+                        <input type="text" name="keyword" class="inp" value="" />
+                        <div class="placeholders">인스타 주소를 입력하세요</div>
+                    </div>
+                </div>
+                <button id="btn_search" class="btn btn-success btn-sm" style="position:absolute; top:0; right:0; height:40px ; width:50px; font-size:16px;">
+                    <img src="https://www.instagrammoa.com/static/img/search_icon.png" alt="search" style="width:22px; vertical-align:-5px;">
+                </button>
+            </div>
+        </div>
+        <div id="files" style="margin-top:20px;"></div>
+    </main>
+
+    <footer class="container" style="font-weight:bold; margin-top:10px; padding-bottom:10px;">
+        <div>
+            <a href="/moa/privacy/" target="_blank">개인정보보호방침</a>
+            <a href="/" target="_blank">도움말</a>
+            <a href="/" target="_blank">제휴</a>
+            <a href="/" target="_blank">문의/피드백</a>
+        </div>
+        <div>인스타모아 ver 1.0 By Jun.</div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/i18n/ko.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.2/jquery.scrollTo.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+    <script src='https://www.instagrammoa.com/static/js/common.js?210804'></script>
+    <script>
+        class Moa {
+            constructor(param) {
+                // let {
+                //     window_width,
+                //     keyword,
+                //     $file,
+                //     $progressbar,
+                //     $loaded_textarea,
+                //     $clicked_textarea
+                // } = param;
+                // this.keyword = keyword
+                // this.$file = $file;
+                this.column_num = this.getDefaultColumn($(window).width());
+                // this.$progressbar = $progressbar;
+                // this.$loaded_textarea = $loaded_textarea;
+                // this.$clicked_textarea = $clicked_textarea;
+                this.init();
+            }
+            init() {
+                this.is_active = false;
+                this.is_progressbar = false;
+                this.form = {};
+                this.form.keyword = this.keyword;
+                this.index = 0;
+                this.$file = $('#files');
+                // this.files = [];
+                this.$areas = [];
+                this.createAreas();
+            }
+
+            getDefaultColumn(window_width) {
+                let result = 4;
+                if (window_width <= 768) {
+                    result = 2;
+                } else if (window_width <= 1024) {
+                    result = 3;
+                } else {
+                    result = 4;
+                }
+                return result;
+            }
+            createAreas() {
+                for (let i = 0; i < this.column_num; i++) {
+                    this.$areas.push(createEle({
+                        'ele': 'div',
+                        'class': 'area',
+                    }));
+                }
+                this.$areas.forEach((e) => {
+                    e.appendTo(this.$file).css('width', (100 / this.$areas.length) + '%');
+                });
+            }
+            getMinHeightsIndex() {
+                let areaHeights = this.$areas.map((e) => {
+                    return e.height();
+                });
+                return areaHeights.indexOf(Math.min(...areaHeights));
+            }
+
+            a1204() {
+                return new Promise((resolve, reject) => {
+                    let file = this.files[this.index];
+                    if (file === undefined) {
+                        return false;
+                    }
+                    let $img_box = createEle({
+                        'ele': 'div',
+                        'class': 'img_box',
+                    }).appendTo(this.$areas[this.getMinHeightsIndex()]);
+                    let $img = createEle({
+                        'ele': 'img',
+                        'data-src': `${file}`,
+                        'class': 'lazy',
+                        // 'title': file['caption'],
+                    }).appendTo($img_box);
+                    $img.lazy({
+                        beforeLoad: () => {
+                            $img.addClass('loading_img');
+                        },
+                        onError: () => {
+                            $img_box.remove();
+                        },
+                        onFinishedAll: () => {
+                            // if (this.index >= 11) {
+                            if (false) {
+                                this.a1200();
+                            } else {
+                                this.index++;
+                                this.a1204();
+                            }
+                        }
+                    });
+                });
+            }
+        }
+        $.ajax({
+            type: "GET",
+            url: "/getFiles",
+            dataType: "json",
+            data: {},
+            success: (data) => {
+                let moa = new Moa();
+                moa.files = data;
+                moa.a1204();
+            },
+        });
+    </script>
+
+</body>
+
+</html>

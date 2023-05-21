@@ -24,6 +24,7 @@ class Post:
             model = Model()
             mapper = Mapper()
             util = Util()
+            mapper.username = self.user.id
 
             directory = f'appdata/data/{self.user.id}'
             file_list = os.listdir(directory)
@@ -40,7 +41,7 @@ class Post:
                     apple.posts.append(mapper.getPosts(item))
 
                 model.savePosts(apple.posts)
-
+            mylogger.info(f'end post success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())
             mylogger.info(err)

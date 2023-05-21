@@ -9,6 +9,24 @@ from Model import Model
 from urllib.parse import urlparse
 
 
+class Test:
+
+    filePath = 'appdata/video'
+    username = ''
+
+    def requestVideoSync(self, files):
+        for i, file in enumerate(files):
+            dirs = f'{file.username}/{file.code}'
+            fileUsernamePath = f'{self.filePath}/{dirs}'
+            os.makedirs(fileUsernamePath, exist_ok=True)
+
+            fpn = f'{fileUsernamePath}/{file.video_local}'
+            print(fpn)
+            with open(fpn, 'wb') as f:
+                response = requests.get(file.video)
+                f.write(response.content)
+
+
 class Video:
 
     userId = None
@@ -21,20 +39,17 @@ class Video:
         try:
             mylogger = createLogger('Video')
             mylogger.info(f'start video : {self.user.id}')
+
+            test = Test()
+            test.username = self.user.id
             model = Model()
             model.username = self.user.id
-
             files = model.getFiles()
-            urls = [file['video'] for file in files if file['video'] != None]
-            for i, url in enumerate(urls):
-                parsed_uri = urlparse(url)
-                filename, _ = os.path.splitext(parsed_uri.path)
-                filename = os.path.basename(filename)
-                save_path = f'appdata/video/{filename}.mp4'
-                response = requests.get(url, timeout=60000)
-                with open(save_path, 'wb') as f:
-                    f.write(response.content)
 
+            files = [DotMap(file) for file in files]
+            files = [file for file in files if file.video != None]
+            test.requestVideoSync(files)
+            mylogger.info(f'end video success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())
             mylogger.info(err)
