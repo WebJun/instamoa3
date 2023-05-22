@@ -11,12 +11,22 @@ from createLogger import createLogger
 from Model import Model
 from urllib.parse import urlparse
 from pprint import pprint
+from Config import Config
 
 
 class Image2Downloader:
 
     filePath = 'appdata/Image2'
     username = ''
+
+    def __init__(self):
+        config = Config()
+
+        if config.WIFI_IP:
+            self.conn = aiohttp.TCPConnector(
+                local_addr=(self.c.scrapServer.ip, 0))
+        else:
+            self.conn = aiohttp.TCPConnector()
 
     async def requestImage2Async(self, file):
         dirs = f'{file.username}/{file.code}'
@@ -25,7 +35,7 @@ class Image2Downloader:
 
         fpn = f'{fileUsernamePath}/{file.image_local}'
         try:
-            async with aiohttp.ClientSession() as session:
+            async with aiohttp.ClientSession(connector=self.conn) as session:
                 async with session.get(file.image) as res:
                     async with aiofiles.open(fpn, 'wb') as f:
                         await f.write(await res.read())

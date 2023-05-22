@@ -6,6 +6,7 @@ import traceback
 from dotmap import DotMap
 from createLogger import createLogger
 from Model import Model
+from Config import Config
 
 
 class Image3Downloader:
@@ -13,6 +14,13 @@ class Image3Downloader:
 
     def __init__(self):
         self.logger = createLogger('Image3Downloader')
+        config = Config()
+
+        if config.WIFI_IP:
+            self.conn = aiohttp.TCPConnector(
+                local_addr=(self.c.scrapServer.ip, 0))
+        else:
+            self.conn = aiohttp.TCPConnector()
 
     async def downloadImage3(self, session, file):
         try:
@@ -39,7 +47,7 @@ class Image3Downloader:
             self.logger.info(err)
 
     async def downloadImage3s(self, files, concurrencyLimit):
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(connector=self.conn) as session:
             semaphore = asyncio.Semaphore(concurrencyLimit)
             tasks = []
             for file in files:

@@ -2,6 +2,7 @@ __pycache__
 .venv
 *.pyc
 example
+.env
 .dev.env
 .prod.env
 /appdata*/

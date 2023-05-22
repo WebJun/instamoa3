@@ -6,22 +6,20 @@ import traceback
 from Util import Util
 from dotmap import DotMap  # pip install dotmap
 from IpManager import IpManager
+from Config import Config
 
 
 class HttpHandler:
 
     def __init__(self):
         self.logger = createLogger('HttpHandler')
+        config = Config()
         httpFactory = HttpFactory()
         self.http = httpFactory.create('requests')
         self.util = Util()
-        self.mode = False
-        self.saveMode = True
-        self.ipManager = IpManager('192.168.42.36')
+        self.ipManager = IpManager(config.MOBILE_IP)
 
     def getUserHtml(self, userName):
-        if self.mode:
-            return self.util.readFile('appdata/html/dlwlrma.html')
         result = ''
         try:
             response = self.http.getUserHtml(userName)
@@ -30,37 +28,24 @@ class HttpHandler:
             if self.check404(response.text):
                 raise Exception('aaaa')
             result = response.text
-            if self.saveMode:
-                self.util.saveFile(
-                    f'appdata/html/{self.util.now()}.html', result)
         except:
             self.logger.info(traceback.format_exc())
         return result
 
     def getUserJson(self, userId, xIgAppID):
-        if self.mode:
-            return self.util.readFile('appdata/json/dlwlrma.json')
         result = ''
         try:
             response = self.http.getUserJson(userId, xIgAppID)
             result = response.text
-            if self.saveMode:
-                self.util.saveFile(
-                    f'appdata/json/{self.util.now()}.json', result)
         except:
             self.logger.error(traceback.format_exc())
         return result
 
     def getUserJson2(self, userId, xIgAppID, max_id):
-        if self.mode:
-            return self.util.readFile('appdata/json/dlwlrma.json')
         result = ''
         try:
             response = self.http.getUserJson2(userId, xIgAppID, max_id)
             result = response.text
-            if self.saveMode:
-                self.util.saveFile(
-                    f'appdata/json/{self.util.now()}.json', result)
         except:
             self.logger.error(traceback.format_exc())
         return result
@@ -73,9 +58,6 @@ class HttpHandler:
             try:
                 response = self.http.getUserJson2(userId, xIgAppID, max_id)
                 result = DotMap(response.json())
-                if self.saveMode:
-                    self.util.saveFile(
-                        f'appdata/json/{self.util.now()}.json', response.text)
             except:
                 self.logger.error(traceback.format_exc())
             if result.status == 'ok':
@@ -85,7 +67,6 @@ class HttpHandler:
         return result
 
     def check404(self, html):
-        # a = self.util.readFile('aaa.html')
         html = BeautifulSoup(html, 'html.parser')
         title = html.find('title').string.strip()
         print(title)
