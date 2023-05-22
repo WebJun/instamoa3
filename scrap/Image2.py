@@ -1,50 +1,42 @@
+import traceback
 import os
-import asyncio
 import aiohttp
 import aiofiles
 import traceback
-from dotmap import DotMap
+import os
+import sys
+import asyncio
+from dotmap import DotMap  # pip install dotmap
 from createLogger import createLogger
 from Model import Model
+from urllib.parse import urlparse
+from pprint import pprint
 
 
-class ImageDownloader:
-    filePath = 'appdata/image2'
+class Image2Downloader:
 
-    async def download_image(self, session, file):
-        async with session.get(file.image) as response:
-            dirs = f'{file.username}/{file.code}'
-            fileUsernamePath = f'{self.filePath}/{dirs}'
-            os.makedirs(fileUsernamePath, exist_ok=True)
+    filePath = 'appdata/Image2'
+    username = ''
 
-            fpn = f'{fileUsernamePath}/{file.image_local}'
-            async with aiofiles.open(fpn, 'wb') as f:
-                while True:
-                    chunk = await response.content.read(1024)
-                    if not chunk:
-                        break
-                    await f.write(chunk)
+    async def requestImage2Async(self, file):
+        dirs = f'{file.username}/{file.code}'
+        fileUsernamePath = f'{self.filePath}/{dirs}'
+        os.makedirs(fileUsernamePath, exist_ok=True)
 
-    async def download_images(self, files, concurrency_limit):
-        async with aiohttp.ClientSession() as session:
-            semaphore = asyncio.Semaphore(concurrency_limit)
-            tasks = []
-            for file in files:
-                async with semaphore:
-                    task = asyncio.create_task(
-                        self.download_image(session, file))
-                    tasks.append(task)
-            await asyncio.gather(*tasks)
-
-    async def main(self, files):
-        concurrency_limit = 10
-        await self.download_images(files, concurrency_limit)
-
-        print('이미지 다운로드 완료')
+        fpn = f'{fileUsernamePath}/{file.image_local}'
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(file.image) as res:
+                    async with aiofiles.open(fpn, 'wb') as f:
+                        await f.write(await res.read())
+        except Exception as e:
+            print(traceback.format_exc())
 
 
 class Image2:
+
     userId = None
+    filePath = 'appdata/Image2'
 
     def __init__(self, userId):
         self.user = DotMap()
@@ -53,20 +45,21 @@ class Image2:
     def run(self):
         try:
             mylogger = createLogger('Image2')
-            mylogger.info(f'start Image2: {self.user.id}')
+            mylogger.info(f'start Image2 : {self.user.id}')
 
+            downloader = Image2Downloader()
+            downloader.username = self.user.id
             model = Model()
-            downloader = ImageDownloader()
-
             model.username = self.user.id
             files = model.getFiles()
+
             files = [DotMap(file) for file in files]
-
+            tasks = [downloader.requestImage2Async(file) for file in files]
             loop = asyncio.get_event_loop()
-            loop.run_until_complete(downloader.main(files))
-
-            mylogger.info(f'end Image2 success: {self.user.id}')
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(asyncio.wait(tasks))
+            mylogger.info(f'end Image2 success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())
             mylogger.info(err)
-            mylogger.info(f'end user error: {self.user.id}')
+            mylogger.info(f'end user error : {self.user.id}')

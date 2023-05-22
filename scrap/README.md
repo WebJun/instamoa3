@@ -13,9 +13,13 @@ pip install -r requirements.txt
 vim ~/.bashrc  
 source /scrap/www.instagrammoa.com/.venv/bin/activate  
 
-python main.py http dlwlrma  
-python main.py user dlwlrma  
-python main.py post dlwlrma  
-python main.py file dlwlrma  
-python main.py image dlwlrma  
-python main.py video dlwlrma  
+python main.py http dlwlrma
+python main.py user dlwlrma
+python main.py post dlwlrma
+python main.py file dlwlrma
+python main.py image dlwlrma
+python main.py image2 dlwlrma
+python main.py image3 dlwlrma
+python main.py video dlwlrma
+python main.py video2 dlwlrma
+python main.py video3 dlwlrma

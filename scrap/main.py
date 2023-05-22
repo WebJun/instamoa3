@@ -5,8 +5,10 @@ from Post import Post
 from File import File
 from Image import Image
 from Image2 import Image2
+from Image3 import Image3
 from Video import Video
 from Video2 import Video2
+from Video3 import Video3
 import json
 from createLogger import createLogger
 
@@ -31,12 +33,16 @@ class InstaFactory:
                 return File(argv[2])
             elif argv[1] == 'image':
                 return Image(argv[2])
-            elif argv[1] == 'video':
-                return Video(argv[2])
             elif argv[1] == 'image2':
                 return Image2(argv[2])
+            elif argv[1] == 'image3':
+                return Image3(argv[2])
+            elif argv[1] == 'video':
+                return Video(argv[2])
             elif argv[1] == 'video2':
                 return Video2(argv[2])
+            elif argv[1] == 'video3':
+                return Video3(argv[2])
         except Exception as err:
             self.logger.info('인자를 올바르게 입력하세요')
             sys.exit()
@@ -50,7 +56,10 @@ if __name__ == '__main__':
     python main.py file dlwlrma
     python main.py image dlwlrma
     python main.py image2 dlwlrma
+    python main.py image3 dlwlrma
     python main.py video dlwlrma
+    python main.py video2 dlwlrma
+    python main.py video3 dlwlrma
     '''
     mylogger = createLogger('Main')
 

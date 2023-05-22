@@ -4,7 +4,7 @@ import os
 import webbrowser
 import glob
 
-app = Flask(__name__, template_folder='', static_folder='appdata/image')
+app = Flask(__name__, template_folder='', static_folder='appdata')
 
 
 @app.route('/')
@@ -14,9 +14,13 @@ def index():
 
 @app.route('/getFiles')
 def getFiles():
-    jpgGlob = f'appdata/image/*/*/*'
+    currentPath = os.path.abspath(__file__)
+    basePath = os.path.dirname(currentPath)
+    jpgGlob = f'{basePath}/appdata/*/*/*/*'
     files = glob.glob(jpgGlob, recursive=True)
-    files = [file[7:1000]
+
+    basePathLen = len(basePath) + 1
+    files = [file[basePathLen:1000]
              for file in files if os.path.splitext(file)[1] == '.jpg']
     files.reverse()
     return files

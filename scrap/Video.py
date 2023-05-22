@@ -9,9 +9,9 @@ from Model import Model
 from urllib.parse import urlparse
 
 
-class Test:
+class VideoDownloader:
 
-    filePath = 'appdata/video'
+    filePath = 'appdata/Video'
     username = ''
 
     def requestVideoSync(self, files):
@@ -37,18 +37,18 @@ class Video:
     def run(self):
         try:
             mylogger = createLogger('Video')
-            mylogger.info(f'start video : {self.user.id}')
+            mylogger.info(f'start Video : {self.user.id}')
 
-            test = Test()
-            test.username = self.user.id
+            downloader = VideoDownloader()
+            downloader.username = self.user.id
             model = Model()
             model.username = self.user.id
             files = model.getFiles()
 
             files = [DotMap(file) for file in files]
-            files = [file for file in files if file.video != None]
-            test.requestVideoSync(files)
-            mylogger.info(f'end video success : {self.user.id}')
+            files = [file for file in files if file.video is not None]
+            downloader.requestVideoSync(files)
+            mylogger.info(f'end Video success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())
             mylogger.info(err)
