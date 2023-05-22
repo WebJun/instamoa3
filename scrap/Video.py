@@ -21,7 +21,6 @@ class Test:
             os.makedirs(fileUsernamePath, exist_ok=True)
 
             fpn = f'{fileUsernamePath}/{file.video_local}'
-            print(fpn)
             with open(fpn, 'wb') as f:
                 response = requests.get(file.video)
                 f.write(response.content)

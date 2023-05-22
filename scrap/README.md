@@ -13,9 +13,9 @@ pip install -r requirements.txt
 vim ~/.bashrc  
 source /scrap/www.instagrammoa.com/.venv/bin/activate  
 
-python main.py http okjayeon  
-python main.py user okjayeon  
-python main.py post okjayeon  
-python main.py file okjayeon  
-python main.py image okjayeo  
-python main.py video okjayeo  
+python main.py http dlwlrma  
+python main.py user dlwlrma  
+python main.py post dlwlrma  
+python main.py file dlwlrma  
+python main.py image dlwlrma  
+python main.py video dlwlrma  
