@@ -24,7 +24,7 @@ class Image2Downloader:
 
         if config.WIFI_IP:
             self.conn = aiohttp.TCPConnector(
-                local_addr=(self.c.scrapServer.ip, 0))
+                local_addr=(config.WIFI_IP, 0))
         else:
             self.conn = aiohttp.TCPConnector()
 
