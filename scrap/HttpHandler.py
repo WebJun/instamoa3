@@ -52,8 +52,6 @@ class HttpHandler:
 
     def getUserJson3(self, userId, xIgAppID, max_id):
         for i in range(0, 10):
-            if self.mode:
-                return self.util.readFile('appdata/json/dlwlrma.json')
             result = {}
             try:
                 response = self.http.getUserJson2(userId, xIgAppID, max_id)

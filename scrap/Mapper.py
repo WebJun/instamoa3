@@ -1,4 +1,3 @@
-
 from dotmap import DotMap  # pip install dotmap
 from datetime import datetime
 from Util import Util
@@ -20,8 +19,8 @@ class Mapper:
 
         result = []
         for index, carousel_item in enumerate(item.carousel_media, start=1):
-            result.append(self.getFilesInner(
-                carousel_item, code, taken_at, index))
+            result.append(
+                self.getFilesInner(carousel_item, code, taken_at, index))
         return result
 
     def getFilesInner(self, item, code, taken_at, index):
@@ -35,7 +34,8 @@ class Mapper:
         if 'image_versions2' in item:
             result.image = item.image_versions2.candidates[0].url
         if 'video_versions' in item:
-            result.video = item.video_versions[0].url
+            if 'url' in item.video_versions[0]:
+                result.video = item.video_versions[0].url
         result = self.getLocalname(result, index)
         return result
 
