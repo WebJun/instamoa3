@@ -1,13 +1,14 @@
 import traceback
 import os
 import traceback
-import os
+import sys
 import requests
 from dotmap import DotMap  # pip install dotmap
 from createLogger import createLogger
 from Model import Model
 from urllib.parse import urlparse
 from Config import Config
+from pprint import pprint
 
 
 class VideoDownloader:
@@ -34,15 +35,22 @@ class VideoDownloader:
         return session
 
     def requestVideoSync(self, files):
-        for i, file in enumerate(files):
+        for index, file in enumerate(files):
+            pprint(index)
             dirs = f'{file.username}/{file.code}'
             fileUsernamePath = f'{self.filePath}/{dirs}'
             os.makedirs(fileUsernamePath, exist_ok=True)
-
             fpn = f'{fileUsernamePath}/{file.video_local}'
-            with open(fpn, 'wb') as f:
-                response = self.requests.get(file.video)
-                f.write(response.content)
+            try:
+                with open(fpn, 'wb') as f:
+                    response = self.requests.get(file.video)
+                    f.write(response.content)
+                    file.video_status = 200
+            except Exception as err:
+                if os.path.isfile(fpn):
+                    os.remove(fpn)
+                file.video_status = 400
+        return files
 
 
 class Video:
@@ -66,7 +74,8 @@ class Video:
 
             files = [DotMap(file) for file in files]
             files = [file for file in files if file.video is not None]
-            downloader.requestVideoSync(files)
+            files = downloader.requestVideoSync(files)
+            model.updateVideoFiles(files)
             mylogger.info(f'end Video success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())

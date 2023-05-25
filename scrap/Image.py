@@ -1,13 +1,14 @@
 import traceback
 import os
 import traceback
-import os
+import sys
 import requests
 from dotmap import DotMap  # pip install dotmap
 from createLogger import createLogger
 from Model import Model
 from urllib.parse import urlparse
 from Config import Config
+from pprint import pprint
 
 
 class ImageDownloader:
@@ -34,15 +35,22 @@ class ImageDownloader:
         return session
 
     def requestImageSync(self, files):
-        for i, file in enumerate(files):
+        for index, file in enumerate(files):
+            pprint(index)
             dirs = f'{file.username}/{file.code}'
             fileUsernamePath = f'{self.filePath}/{dirs}'
             os.makedirs(fileUsernamePath, exist_ok=True)
-
             fpn = f'{fileUsernamePath}/{file.image_local}'
-            with open(fpn, 'wb') as f:
-                response = self.requests.get(file.image)
-                f.write(response.content)
+            try:
+                with open(fpn, 'wb') as f:
+                    response = self.requests.get(file.image)
+                    f.write(response.content)
+                    file.image_status = 200
+            except Exception as err:
+                if os.path.isfile(fpn):
+                    os.remove(fpn)
+                file.image_status = 400
+        return files
 
 
 class Image:
@@ -65,7 +73,8 @@ class Image:
             files = model.getFiles()
 
             files = [DotMap(file) for file in files]
-            downloader.requestImageSync(files)
+            files = downloader.requestImageSync(files)
+            model.updateImageFiles(files)
             mylogger.info(f'end Image success : {self.user.id}')
         except Exception as err:
             mylogger.info(traceback.format_exc())

@@ -21,6 +21,7 @@ class Model:
 
     def getFiles(self):
         return File.objects.filter(username=self.username).values()
+        # return File.objects.filter(username=self.username, image_status__isnull=True).values()
 
     def saveUser(self, user):
         user.pks = user.pop("pk")
@@ -43,6 +44,24 @@ class Model:
             file = self.filterExistField(file, File)
             fileArr.append(File(**file))
         File.objects.bulk_create(fileArr)
+
+    def updateImageFiles(self, files):
+        fileSeqs = [file.seq for file in files if file.image_status == 200]
+        if fileSeqs:
+            File.objects.filter(seq__in=fileSeqs).update(image_status=200)
+
+        fileSeqs = [file.seq for file in files if file.image_status == 400]
+        if fileSeqs:
+            File.objects.filter(seq__in=fileSeqs).update(image_status=400)
+
+    def updateVideoFiles(self, files):
+        fileSeqs = [file.seq for file in files if file.video_status == 200]
+        if fileSeqs:
+            File.objects.filter(seq__in=fileSeqs).update(video_status=200)
+
+        fileSeqs = [file.seq for file in files if file.video_status == 400]
+        if fileSeqs:
+            File.objects.filter(seq__in=fileSeqs).update(video_status=400)
 
     def filterExistField(self, user, Table):
         lst1 = [field.name for field in Table._meta.get_fields()]

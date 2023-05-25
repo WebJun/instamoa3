@@ -29,23 +29,28 @@ class Mapper:
         result.code = code
         result.taken_at = taken_at
         result.id = item.id
-        result.image = None
-        result.video = None
+
         if 'image_versions2' in item:
             result.image = item.image_versions2.candidates[0].url
         if 'video_versions' in item:
-            if 'url' in item.video_versions[0]:
-                result.video = item.video_versions[0].url
+            result.video = item.video_versions[0].url
+
+        if not result.image:
+            result.image = None
+        if not result.video:
+            result.video = None
+
         result = self.getLocalname(result, index)
         return result
 
     def getLocalname(self, res, index):
         apple = datetime.fromtimestamp(int(res.taken_at))
         cdn = 'cdn3'
+        name = f"{apple.strftime('%Y%m%d%H%M%S')}+{cdn}+{res.username}+{res.code}+{self.util.zfill3(index)}"
         if res.image != None:
-            res.image_local = f"{apple.strftime('%Y%m%d%H%M%S')}+{cdn}+{res.username}+{res.code}+{self.util.zfill3(index)}.jpg"
+            res.image_local = f'{name}.jpg'
         if res.video != None:
-            res.video_local = f"{apple.strftime('%Y%m%d%H%M%S')}+{cdn}+{res.username}+{res.code}+{self.util.zfill3(index)}.mp4"
+            res.video_local = f'{name}.mp4'
         return res
 
     def getPosts(self, item):
