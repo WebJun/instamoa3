@@ -1,0 +1,664 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-433-924
+DEBUG:5:Debug 메시지
+INFO:5:Info 메시지
+WARNING:5:Warning 메시지
+ERROR:5:Error 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:26:40] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+DEBUG:5:Debug 메시지
+INFO:5:Info 메시지
+WARNING:5:Warning 메시지
+ERROR:5:Error 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:26:42] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:werkzeug: * Detected change in '/scrap/5.py', reloading
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-433-924
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:28:46] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:28:49] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:28:50] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:28:51] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:28:52] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:werkzeug: * Detected change in '/scrap/5.py', reloading
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-433-924
+INFO:5:Info 메시지
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:30:12] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:30:20] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:30:22] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:30:24] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:30:25] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:werkzeug: * Detected change in '/scrap/5.py', reloading
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-433-924
+INFO:5:Info 메시지
+INFO:Flask:start
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:34:41] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:34:44] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:werkzeug: * Detected change in '/scrap/5.py', reloading
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-433-924
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:35:01] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:end
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:35:09] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:end
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:35:10] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:end
+INFO:5:Info 메시지
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:35:10] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/5.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-433-924
+INFO:werkzeug: * Detected change in '/scrap/5.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-433-924
+INFO:5:flask에서 요청 받음
+INFO:Flask:start
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:36:51] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:162
+INFO:Flask:end
+INFO:5:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:36:52] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:164
+INFO:Flask:end
+INFO:5:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:36:53] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:166
+INFO:Flask:end
+INFO:5:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:36:53] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:168
+INFO:Flask:end
+INFO:5:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [26/May/2023 15:36:54] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:170
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/5.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-433-924
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:5:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 11:12:08] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:37
+INFO:Flask:end
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 11:12:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:5:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 11:12:20] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:40
+INFO:Flask:end
+INFO:5:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 11:12:21] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:42
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/djangoOrm/insta/models.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:Flask:start
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:44:22] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:Flask:start
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:44:47] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:113
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:44:56] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:115
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:44:56] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:117
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:44:56] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:119
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:44:56] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "user_id": "dlwlrma"}
+INFO:Flask:121
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/djangoOrm/insta/models.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:Flask:start
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:51:05] "GET /execute?priority=1&user_id=dlwlrma HTTP/1.1" 200 -
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:51:19] "GET /execute?priority=1&id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma"}
+INFO:Flask:153
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:51:22] "GET /execute?priority=1&id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma"}
+INFO:Flask:155
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:51:22] "GET /execute?priority=1&id=dlwlrma HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma"}
+INFO:Flask:157
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:51:53] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user"}
+INFO:Flask:159
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:52:00] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user"}
+INFO:Flask:161
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:52:00] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user"}
+INFO:Flask:163
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:54:35] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 168}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:54:36] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 170}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:54:36] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 172}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:54:45] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 174}
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:55:37] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 179, "status": 100}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:55:49] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 181, "status": 100}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:55:49] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 183, "status": 100}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:55:50] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 185, "status": 100}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:55:50] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 187, "status": 100}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:56:08] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 189, "status": 100}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:56:08] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 191, "status": 100}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 20:56:14] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 193, "status": 100}
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:00:01] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:00:01] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:00:01] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:00:01] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 198, "status": 100}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 200, "status": 100}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 202, "status": 100}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 204, "status": 100}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:00:20] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:00:20] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 206, "status": 100}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 208, "status": 100}
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:01:49] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 219, "status": 200}
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:Flask:start
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:05:37] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:05:39] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 224, "status": 200}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 226, "status": 200}
+INFO:Flask:end
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:05:58] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/Model.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/6.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:08:24] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:08:27] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 245, "status": 200}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 247, "status": 200}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:08:53] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 249, "status": 200}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:09:15] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 251, "status": 200}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:12:12] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:12:12] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:12:13] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 253, "status": 200}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 255, "status": 200}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 257, "status": 200}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:15:06] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:15:07] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 259, "status": 200}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 261, "status": 200}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:35:51] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:35:51] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:35:51] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 263, "status": 200}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 265, "status": 200}
+INFO:Flask:end
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 267, "status": 200}
+INFO:Flask:end
+INFO:6:flask에서 요청 받음
+INFO:werkzeug:172.19.0.1 - - [27/May/2023 21:37:52] "GET /execute?priority=1&id=dlwlrma&type=user HTTP/1.1" 200 -
+INFO:Flask:start
+INFO:Flask:{"priority": "1", "id": "dlwlrma", "type": "user", "pid": 269, "status": 200}
+INFO:Flask:end
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:18000
+ * Running on http://172.19.0.3:18000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/7.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/7.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/7.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/7.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/7.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/7.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/7.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335
+INFO:werkzeug: * Detected change in '/scrap/7.py', reloading
+INFO:werkzeug: * Restarting with stat
+DEBUG:asyncio:Using selector: EpollSelector
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 809-608-335

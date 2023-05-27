@@ -7,6 +7,17 @@ import jsonfield  # pip install django-jsonfield
 import json
 
 
+class Process(models.Model):
+    seq = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False)
+    pid = models.CharField(max_length=255, null=True)
+    post_count = models.CharField(max_length=255, null=True)
+    status = models.CharField(max_length=255, null=True)
+    priority = models.CharField(max_length=255, null=True)
+    id = models.CharField(max_length=255, null=True)
+    type = models.CharField(max_length=255, null=True)
+
+
 class User(models.Model):
     seq = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)

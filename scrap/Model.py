@@ -5,6 +5,7 @@ from djangoOrm.insta.models import (
     User,
     Post,
     File,
+    Process
 )
 from django.db.models import Q, Max, Min
 
@@ -12,6 +13,9 @@ from django.db.models import Q, Max, Min
 class Model:
 
     username = ''
+
+    def getProcess(self):
+        return Process.objects.values()
 
     def getUsers(self):
         return User.objects.filter(username=self.username).values()
@@ -22,6 +26,13 @@ class Model:
     def getFiles(self):
         return File.objects.filter(username=self.username).values()
         # return File.objects.filter(username=self.username, image_status__isnull=True).values()
+
+    def savePorcess(self, data):
+        userSet = Process(**data)
+        userSet.save()
+
+    def updatePorcess(self, pid):
+        Process.objects.filter(pid=pid).update(status=200)
 
     def saveUser(self, user):
         user.pks = user.pop("pk")
