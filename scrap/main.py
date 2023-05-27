@@ -1,4 +1,5 @@
 import sys
+from All import All
 from Http import Http
 from User import User
 from Post import Post
@@ -23,7 +24,9 @@ class InstaFactory:
     def create(self, argv):
         self.logger.info(json.dumps(argv))
         try:
-            if argv[1] == 'http':
+            if argv[1] == 'all':
+                return All(argv[2])
+            elif argv[1] == 'http':
                 return Http(argv[2])
             elif argv[1] == 'user':
                 return User(argv[2])
@@ -50,6 +53,10 @@ class InstaFactory:
 
 if __name__ == '__main__':
     '''
+    python main.py all dlwlrma
+    python main.py one dlwlrma
+    python main.py two dlwlrma
+
     python main.py http dlwlrma
     python main.py user dlwlrma
     python main.py post dlwlrma
