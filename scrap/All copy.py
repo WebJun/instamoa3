@@ -35,12 +35,17 @@ class InstaCrawling:
         getUserData.first()
 
         i = 0
-        user, next = getUserData.repeat()
-        jsonFile = f'{fileUsernamePath}/{self.util.now()}.json'
-        self.util.saveFile(jsonFile, json.dumps(user.toDict()))
+        while True:
+            user, next = getUserData.repeat()
 
-        print(i, next)
-        return jsonFile
+            self.util.saveFile(
+                f'{fileUsernamePath}/{self.util.now()}.json', json.dumps(user.toDict()))
+
+            print(i, next)
+            if next == False:
+                break
+            i = i + 1
+            break
 
 
 class Image3Downloader:
@@ -200,76 +205,117 @@ class All:
         try:
             mylogger = createLogger('All')
             mylogger.info(f'start all : {self.user.id}')
-            util = Util()
+            insta = InstaCrawling()
+            '''
+            kimviju
+            clairehauyo
+            tsu_chan44rika
+            cher_e
+            evieleemikomin
+            leuwsii
+            '''
+            insta.username = self.user.id
+            insta.run()
+
+            ###################################################################
+            ###################################################################
+            ###################################################################
             model = Model()
             mapper = Mapper()
-            insta = InstaCrawling()
-            iDownloader = Image3Downloader()
-            vDownloader = Video3Downloader()
+            util = Util()
 
-            insta.username = self.user.id
-            jsonFile = insta.run()
+            directory = f'appdata/data/{self.user.id}'
+            file_list = os.listdir(directory)
+            for index, file_name in enumerate(file_list):
+                fpn = f'appdata/data/{self.user.id}/{file_name}'
+                pprint(fpn)
+                data = util.readFile(fpn)
+                data = DotMap(json.loads(data))
+
+                pprint(data.user)
+                if index == 0:
+                    model.saveUser(data.user)
+                break
+
             ###################################################################
             ###################################################################
             ###################################################################
+            model = Model()
+            mapper = Mapper()
+            util = Util()
             mapper.username = self.user.id
 
-            data = util.readFile(jsonFile)
-            data = DotMap(json.loads(data))
+            directory = f'appdata/data/{self.user.id}'
+            file_list = os.listdir(directory)
+            for index, file_name in enumerate(file_list):
+                fpn = f'appdata/data/{self.user.id}/{file_name}'
+                pprint(fpn)
+                data = util.readFile(fpn)
+                data = DotMap(json.loads(data))
 
-            pprint(data.user)
-            model.saveUser(data.user)
+                data.fitems = data.pop('items')
+                apple = DotMap()
+                apple.posts = []
+                for item in data.fitems:
+                    apple.posts.append(mapper.getPosts(item))
 
+                model.savePosts(apple.posts)
+                break
+            ###################################################################
+            ###################################################################
+            ###################################################################
+            model = Model()
+            mapper = Mapper()
+            util = Util()
+            mapper.username = self.user.id
+
+            directory = f'appdata/data/{self.user.id}'
+            file_list = os.listdir(directory)
+            for index, file_name in enumerate(file_list):
+                fpn = f'appdata/data/{self.user.id}/{file_name}'
+                pprint(fpn)
+                data = util.readFile(fpn)
+                data = DotMap(json.loads(data))
+
+                data.fitems = data.pop('items')
+
+                apple = DotMap()
+                apple.files = []
+                for item in data.fitems:
+                    apple.files = apple.files + mapper.getFiles(item)
+
+                model.saveFiles(apple.files)
+                break
             ###################################################################
             ###################################################################
             ###################################################################
 
-            data = util.readFile(jsonFile)
-            data = DotMap(json.loads(data))
+            model = Model()
+            downloader = Image3Downloader()
 
-            data.fitems = data.pop('items')
-            apple = DotMap()
-            apple.posts = []
-            for item in data.fitems:
-                apple.posts.append(mapper.getPosts(item))
-
-            model.savePosts(apple.posts)
-
-            ###################################################################
-            ###################################################################
-            ###################################################################
-
-            data = util.readFile(jsonFile)
-            data = DotMap(json.loads(data))
-
-            data.fitems = data.pop('items')
-
-            apple = DotMap()
-            apple.files = []
-            for item in data.fitems:
-                apple.files = apple.files + mapper.getFiles(item)
-
-            model.saveFiles(apple.files)
-
-            ###################################################################
-            ###################################################################
-            ###################################################################
+            model.username = self.user.id
             files = model.getFiles()
             files = [DotMap(file) for file in files]
 
-            iDownloader.setFiles(files)
-            files = iDownloader.run()
+            downloader.setFiles(files)
+            files = downloader.run()
             model.updateImageFiles(files)
             ###################################################################
             ###################################################################
             ###################################################################
+
+            model = Model()
+            downloader = Video3Downloader()
+
+            model.username = self.user.id
             files = model.getFiles()
             files = [DotMap(file) for file in files]
             files = [file for file in files if file.video is not None]
 
-            vDownloader.setFiles(files)
-            files = vDownloader.run()
+            downloader.setFiles(files)
+            files = downloader.run()
             model.updateVideoFiles(files)
+
             ###################################################################
             ###################################################################
             ###################################################################

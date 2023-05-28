@@ -53,20 +53,20 @@ class InstaFactory:
 
 if __name__ == '__main__':
     '''
-    python main.py all dlwlrma
-    python main.py one dlwlrma
-    python main.py two dlwlrma
+    python main.py all kimviju
+    python main.py one kimviju
+    python main.py two kimviju
 
-    python main.py http dlwlrma
-    python main.py user dlwlrma
-    python main.py post dlwlrma
-    python main.py file dlwlrma
-    python main.py image dlwlrma
-    python main.py image2 dlwlrma
-    python main.py image3 dlwlrma
-    python main.py video dlwlrma
-    python main.py video2 dlwlrma
-    python main.py video3 dlwlrma
+    python main.py http kimviju
+    python main.py user kimviju
+    python main.py post kimviju
+    python main.py file kimviju
+    python main.py image kimviju
+    python main.py image2 kimviju
+    python main.py image3 kimviju
+    python main.py video kimviju
+    python main.py video2 kimviju
+    python main.py video3 kimviju
     '''
     mylogger = createLogger('Main')
 
