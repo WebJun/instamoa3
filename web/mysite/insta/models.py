@@ -7,6 +7,17 @@ import jsonfield  # pip install django-jsonfield
 import json
 
 
+class Userfeed(models.Model):
+    seq = models.UUIDField(
+        primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.CharField(max_length=255, null=True)
+    type = models.CharField(max_length=255, null=True)
+    url = models.CharField(max_length=255, null=True)
+    data = models.JSONField(default='{}')
+    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
 class Process(models.Model):
     seq = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False)
@@ -16,6 +27,8 @@ class Process(models.Model):
     priority = models.CharField(max_length=255, null=True)
     id = models.CharField(max_length=255, null=True)
     type = models.CharField(max_length=255, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_at = models.CharField(max_length=255, null=True)
 
 
 class User(models.Model):

@@ -5,7 +5,8 @@ from djangoOrm.insta.models import (
     User,
     Post,
     File,
-    Process
+    Process,
+    Userfeed
 )
 from django.db.models import Q, Max, Min
 
@@ -33,6 +34,11 @@ class Model:
 
     def updatePorcess(self, pid):
         Process.objects.filter(pid=pid).update(status=200)
+
+    def saveUserfeed(self, data):
+        userSet = Userfeed()
+        userSet.data = data
+        userSet.save()
 
     def saveUser(self, user):
         user.pks = user.pop("pk")

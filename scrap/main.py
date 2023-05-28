@@ -1,6 +1,7 @@
 import sys
 from All import All
 from Http import Http
+from Http2 import Http2
 from User import User
 from Post import Post
 from File import File
@@ -28,6 +29,8 @@ class InstaFactory:
                 return All(argv[2])
             elif argv[1] == 'http':
                 return Http(argv[2])
+            elif argv[1] == 'http2':
+                return Http2(argv[2])
             elif argv[1] == 'user':
                 return User(argv[2])
             elif argv[1] == 'post':
@@ -58,6 +61,8 @@ if __name__ == '__main__':
     python main.py two kimviju
 
     python main.py http kimviju
+    python main.py http2 kimviju
+
     python main.py user kimviju
     python main.py post kimviju
     python main.py file kimviju
