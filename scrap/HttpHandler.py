@@ -7,6 +7,8 @@ from Util import Util
 from dotmap import DotMap  # pip install dotmap
 from IpManager import IpManager
 from Config import Config
+import time
+from pprint import pprint
 
 
 class HttpHandler:
@@ -58,10 +60,12 @@ class HttpHandler:
                 result = DotMap(response.json())
             except:
                 self.logger.error(traceback.format_exc())
+            pprint(result)
             if result.status == 'ok':
                 break
-            print(i, '무야호')
+            pprint(i, '무야호')
             self.ipManager.changeIP()
+            time.sleep(1)
         return result
 
     def check404(self, html):
